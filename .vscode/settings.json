@@ -1,0 +1,19 @@
+{
+    "debug.allowBreakpointsEverywhere": true,
+    "debug.onTaskErrors": "debugAnyway",
+    // TODO: On task error, "what is this error anyway?", it make bogus cancelled
+    "files.associations": {
+        "*.c": "c",
+        "*.h": "c",
+        "*.s": "nasm",
+    },
+    "workbench.editorAssociations": {
+        "*.bin" : "hexEditor.hexedit",
+        "*.o"   : "hexEditor.hexedit", 
+    },
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/**",
+        "${workspaceFolder}/src",
+    ],
+    "C_Cpp.default.cppStandard": "c++20",
+}
