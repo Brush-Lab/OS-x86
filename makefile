@@ -1,5 +1,3 @@
-#OBJECTS       = src/kernel.o src/kernel-entrypoint.o src/cpu/gdt.o
-
 # Compiler & linker
 ASM           = nasm
 LIN           = ld
@@ -7,9 +5,6 @@ CPPC          = g++
 
 # Directory
 SOURCE_FOLDER = src
-# SOURCE_FOLDER_CODE = $(SOURCE_FOLDER)/code
-# SOURCE_FOLDER_ASM = $(SOURCE_FOLDER)/asm
-# SOURCE_FOLDER_KERNEL = $(SOURCE_FOLDER)/kernel
 OUTPUT_FOLDER = bin
 OUTPUT_KERNEL = bin/kernel
 ISO_NAME      = OS86
@@ -54,8 +49,6 @@ clean:
 	rm -rf bin/
 	rm -rf $(OUTPUT_FOLDER)/*.iso
 	rm -rf $(OUTPUT_FOLDER)/kernel
-	rm -rf bin/*
-	rm -rf bin/*/
 
 kernel: $(OBJECTS) #TODO: I have to update $(OBJECTS)
 	@echo Linking object files and generate elf32...
