@@ -1,8 +1,8 @@
 #include <stdint.h>
-#include <header/cpu/gdt.hpp>
+#include <header/system-bus/system-bus.hpp>
 
 class Kernel {
-    // static constexpr GlobalDescriptorTable::GDT32 system_gdt;
+    SystemBus system_bus;
 public:
     Kernel() {
     }
