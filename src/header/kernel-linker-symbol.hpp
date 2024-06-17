@@ -4,9 +4,8 @@
 #include <stdint.h>
 
 namespace KernelLinkerSymbol {
-    // TODO: Nominal types?
     extern "C" {
-        uint32_t _linker_system_gdt;
+        extern uint32_t _linker_system_gdt;
     };
 }
 
