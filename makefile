@@ -11,13 +11,14 @@ ISO_NAME      = OS86
 DISK_NAME     = storage
 
 # Flags
-WARNING_CFLAG  = -Wall -Wextra -Werror
-DEBUG_CFLAG    = -fshort-wchar -g
-STRIP_CFLAG    = -nostdlib -fno-stack-protector -nostartfiles -nodefaultlibs -ffreestanding
-REGISTER_CFLAG = -mgeneral-regs-only -mno-sse -mno-mmx
-CFLAGS         = $(DEBUG_CFLAG) $(WARNING_CFLAG) $(STRIP_CFLAG) $(REGISTER_CFLAG) -m32 --std=c++20 -c -I$(SOURCE_FOLDER)
-AFLAGS         = -f elf32 -g -F dwarf
-LFLAGS         = -T $(SOURCE_FOLDER)/kernel-linker.ld -m elf_i386 
+WARNING_CFLAG   = -Wall -Wextra -Werror
+DEBUG_CFLAG     = -fshort-wchar -g
+STRIP_CFLAG     = -nostdlib -fno-stack-protector -nostartfiles -nodefaultlibs -ffreestanding
+REGISTER_CFLAG  = -mgeneral-regs-only -mno-sse -mno-mmx
+OPTIMIZER_CFLAG = -O1
+CFLAGS          = $(DEBUG_CFLAG) $(WARNING_CFLAG) $(STRIP_CFLAG) $(REGISTER_CFLAG) $(OPTIMIZER_CFLAG) -m32 --std=c++20 -c -I$(SOURCE_FOLDER)
+AFLAGS          = -f elf32 -g -F dwarf
+LFLAGS          = -T $(SOURCE_FOLDER)/kernel-linker.ld -m elf_i386 
 
 #recursive wildcard
 # so basically this shit below is wildcard but recursive
