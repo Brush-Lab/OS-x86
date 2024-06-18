@@ -5,10 +5,10 @@
 #include <header/kernel-linker-symbol.hpp>
 
 class CPU {
-    static struct GlobalDescriptorTable::GDT32 &system_gdt;
+    static GlobalDescriptorTable::GDT32 &get_system_gdt();
+    GlobalDescriptorTable::GDT32 &gdt;
 
-    constexpr void initialize_system_gdt();
-
+    void initialize_system_gdt();
 public:
     CPU();
 };

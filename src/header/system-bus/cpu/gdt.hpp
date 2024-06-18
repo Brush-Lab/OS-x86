@@ -4,7 +4,7 @@
 #include <stdint.h>
 
 namespace GlobalDescriptorTable {
-    constexpr uint32_t GDT32_ENTRY_COUNT = 1024;
+    constexpr uint32_t GDT32_ENTRY_COUNT = 8192;
 
     struct [[gnu::packed]] GDT32 {
         struct [[gnu::packed]] SegmentDescriptor {
