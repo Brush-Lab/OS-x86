@@ -1,5 +1,5 @@
 global kernel_entrypoint               ; The entry symbol for ELF
-extern kernel_setup                    ; External C or C++ function
+extern cdecl_kernel_setup              ; External C or C++ function
 extern _linker_kernel_entrypoint_stack ; External label where $esp is located before calling kernel_setup
 
 
@@ -27,5 +27,5 @@ section .text
 kernel_entrypoint:
     cli
     mov  esp, _linker_kernel_entrypoint_stack
-    call kernel_setup
-    hlt                                       
+    call cdecl_kernel_setup
+    hlt

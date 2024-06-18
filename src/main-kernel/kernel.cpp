@@ -8,7 +8,7 @@ public:
     }
 };
 
-extern "C" [[gnu::noreturn]] void kernel_setup() {
+extern "C" [[gnu::noreturn]] void cdecl_kernel_setup() {
     [[gnu::unused]] Kernel kernel;
     for (int i = 0; i < 80; i++) {
         ((volatile uint16_t*) 0xB8000)[i] = 0x0F00 | 'a'; 

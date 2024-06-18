@@ -7,7 +7,6 @@ class SystemBus {
     static CPU cpu;
 
 public:
-    // TODO: Ensure determinisitic initialization
     SystemBus();
 };
 

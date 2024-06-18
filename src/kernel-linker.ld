@@ -24,6 +24,7 @@ SECTIONS {
 
     /* Reserve 8K of memory for GDT32 and aligned at 8K boundary */
     .cpu.gdt ALIGN(8K) : {
+        /* TODO: Executable size, load addr, relocation addr optimization */
         _linker_system_gdt = .;
         . += 8*8K;
         ASSERT(. == _linker_system_gdt + 8*8K, "System GDT allocation is not equal with 64K");
