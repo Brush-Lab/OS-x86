@@ -9,11 +9,12 @@
 namespace Paging{
     /**
      * macro, tapi jadi const? gatau lihat contoh gdt.hpp
+     * constexpr: variable ini constant dan bisa di-evaluasi pas compile-time
      */
-    const uint32_t PAGE_ENTRY_COUNT = 1024; 
-    const uint32_t PAGE_FRAME_MAX_COUNT = 32; 
-    const uint32_t PAGE_FRAME_UNMAPPED = 0xFF;
-    const uint32_t PAGE_FRAME_SIZE = (1 << (2 + 10 + 10));
+    constexpr uint32_t PAGE_ENTRY_COUNT = 1024; 
+    constexpr uint32_t PAGE_FRAME_MAX_COUNT = 32; 
+    constexpr uint32_t PAGE_FRAME_UNMAPPED = 0xFF;
+    constexpr uint32_t PAGE_FRAME_SIZE = (1 << (2 + 10 + 10));
 
 
     struct PageDirectoryEntryFlag; 
@@ -64,6 +65,19 @@ namespace Paging{
         void *virtual_addr, 
         struct PageDirectoryEntryFlag flag
     );
+
+    void flush_single_tlb(void *virtual_addr); 
+
+    /* --- Memory Management --- */
+
+    /**
+     * this piece of code, i stole from OS-2024. just Hope this work well.
+     */
+    bool paging_allocate_check(uint32_t amount);
+
+    bool paging_allocate_user_page_frame(struct PageDirectory *page_dir, void *virtual_addr);
+
+    bool paging_free_user_page_frame(struct PageDirectory *page_dir, void *virtual_addr);
 };
 
 extern struct Paging::PageDirectory _paging_kernel_page_directory;
