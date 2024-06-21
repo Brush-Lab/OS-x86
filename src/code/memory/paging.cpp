@@ -57,7 +57,10 @@ void Paging::update_page_directory_entry(
      * reinterpret_cast is a type of casting operator used in c++. 
      * - It is used to convert a pointer of some data type into a pointer of another data type, even if the data types before and after conversion are different.
      * - It does not check if the pointer type and data pointed by the pointer is same or not.
-     * 
+     * src: 
+     * - https://www.geeksforgeeks.org/reinterpret_cast-in-c-type-casting-operators/
+     * - https://en.cppreference.com/w/cpp/language/reinterpret_cast
+     *  
      */
     uint32_t page_index = (reinterpret_cast<uint32_t>(virtual_addr)>> 22) & 0x3FF; 
     page_dir->table[page_index].flag                     = flag;
