@@ -44,7 +44,6 @@ namespace GlobalDescriptorTable {
 
 
 
-
 static_assert(sizeof(GlobalDescriptorTable::GDT32::SegmentDescriptor) == 8);
 
 #endif
